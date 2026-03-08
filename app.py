@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+import os
+st.write("Daftar file yang terdeteksi di server:", os.listdir())
 
 # 1. Load Model dan Scaler
 model = joblib.load('diamond_best_model.pkl')
@@ -61,5 +63,6 @@ if st.button("Prediksi Harga"):
     
     # Tampilkan Hasil
     st.success(f"Estimasi Harga Berlian adalah: **${prediction[0]:,.2f}**")
+
 
 st.info("Catatan: Prediksi didasarkan pada model Machine Learning yang telah dilatih.")
